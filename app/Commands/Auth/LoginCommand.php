@@ -42,43 +42,43 @@ class LoginCommand extends Command
 
         $this->info("Not authenticated");
 
-        // $this->info('🔐 Starting Google Authentication...');
-        // $this->newLine();
+        $this->info('🔐 Starting Google Authentication...');
+        $this->newLine();
 
-        // $authUrl = $authService->getAuthUrl();
+        $authUrl = $authService->getAuthUrl();
 
-        // $this->line('Please visit this URL to authorize the application:');
-        // $this->newLine();
-        // $this->line($authUrl);
-        // $this->newLine();
+        $this->line('Please visit this URL to authorize the application:');
+        $this->newLine();
+        $this->line($authUrl);
+        $this->newLine();
 
-        // // Try to open in browser automatically
-        // if ($this->confirm('Open this URL in your browser?', true)) {
-        //     $this->openInBrowser($authUrl);
-        // }
+        // Try to open in browser automatically
+        if ($this->confirm('Open this URL in your browser?', true)) {
+            $this->openInBrowser($authUrl);
+        }
 
-        // $this->info('Waiting for authentication from your browser...');
+        $this->info('Waiting for authentication from your browser...');
 
-        // $authCode = $this->startLoopbackServer();
+        $authCode = $this->startLoopbackServer();
 
-        // if (!$authCode) {
-        //     $this->error('Failed to capture the authorization code automatically.');
-        //     $authCode = $this->ask('Please enter the code manually if you have it');
-        // }
+        if (!$authCode) {
+            $this->error('Failed to capture the authorization code automatically.');
+            $authCode = $this->ask('Please enter the code manually if you have it');
+        }
 
-        // if (!$authCode) {
-        //     $this->error('Authorization code is required');
-        //     return 1;
-        // }
+        if (!$authCode) {
+            $this->error('Authorization code is required');
+            return 1;
+        }
 
-        // try {
-        //     if ($authService->authenticate($authCode)) {
-        //         $this->info('✅ Successfully authenticated!');
-        //     }
-        // } catch (\Exception $e) {
-        //     $this->error('❌ Authentication failed: ' . $e->getMessage());
-        //     return 1;
-        // }
+        try {
+            if ($authService->authenticate($authCode)) {
+                $this->info('✅ Successfully authenticated!');
+            }
+        } catch (\Exception $e) {
+            $this->error('❌ Authentication failed: ' . $e->getMessage());
+            return 1;
+        }
     }
 
     protected function startLoopbackServer(): ?string
