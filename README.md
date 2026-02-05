@@ -1,41 +1,80 @@
 <p align="center">
-    <img title="Laravel Zero" height="100" src="https://raw.githubusercontent.com/laravel-zero/docs/master/images/logo/laravel-zero-readme.png" alt="Laravel Zero Logo" />
+    <img src="https://raw.githubusercontent.com/laravel-zero/docs/master/images/logo/laravel-zero-readme.png" alt="Logo" height="100">
 </p>
 
-<p align="center">
-  <a href="https://github.com/laravel-zero/framework/actions"><img src="https://github.com/laravel-zero/laravel-zero/actions/workflows/tests.yml/badge.svg" alt="Build Status" /></a>
-  <a href="https://packagist.org/packages/laravel-zero/framework"><img src="https://img.shields.io/packagist/dt/laravel-zero/framework.svg" alt="Total Downloads" /></a>
-  <a href="https://packagist.org/packages/laravel-zero/framework"><img src="https://img.shields.io/packagist/v/laravel-zero/framework.svg?label=stable" alt="Latest Stable Version" /></a>
-  <a href="https://packagist.org/packages/laravel-zero/framework"><img src="https://img.shields.io/packagist/l/laravel-zero/framework.svg" alt="License" /></a>
-</p>
+# Gog CLI
 
-Laravel Zero was created by [Nuno Maduro](https://github.com/nunomaduro) and [Owen Voke](https://github.com/owenvoke), and is a micro-framework that provides an elegant starting point for your console application. It is an **unofficial** and customized version of Laravel optimized for building command-line applications.
+**Gog CLI** is a powerful, interactive command-line interface for managing your Gmail, built with **Laravel Zero**. It allows you to check your emails directly from your terminal with a beautiful, modern UI.
 
-- Built on top of the [Laravel](https://laravel.com) components.
-- Optional installation of Laravel [Eloquent](https://laravel-zero.com/docs/database/), Laravel [Logging](https://laravel-zero.com/docs/logging/) and many others.
-- Supports interactive [menus](https://laravel-zero.com/docs/build-interactive-menus/) and [desktop notifications](https://laravel-zero.com/docs/send-desktop-notifications/) on Linux, Windows & MacOS.
-- Ships with a [Scheduler](https://laravel-zero.com/docs/task-scheduling/) and  a [Standalone Compiler](https://laravel-zero.com/docs/build-a-standalone-application/).
-- Integration with [Collision](https://github.com/nunomaduro/collision) - Beautiful error reporting
-- Follow the creator Nuno Maduro:
-    - YouTube: **[youtube.com/@nunomaduro](https://www.youtube.com/@nunomaduro)** — Videos every weekday
-    - Twitch: **[twitch.tv/enunomaduro](https://www.twitch.tv/enunomaduro)** — Streams (almost) every weekday
-    - Twitter / X: **[x.com/enunomaduro](https://x.com/enunomaduro)**
-    - LinkedIn: **[linkedin.com/in/nunomaduro](https://www.linkedin.com/in/nunomaduro)**
-    - Instagram: **[instagram.com/enunomaduro](https://www.instagram.com/enunomaduro)**
-    - Tiktok: **[tiktok.com/@enunomaduro](https://www.tiktok.com/@enunomaduro)**
+![PHP](https://img.shields.io/badge/PHP-8.2+-777BB4?style=flat-square&logo=php&logoColor=white)
+![Laravel Zero](https://img.shields.io/badge/Laravel%20Zero-10.0+-FF2D20?style=flat-square&logo=laravel&logoColor=white)
 
-------
+## ✨ Features
 
-## Documentation
+- **📨 Interactive Email List**: View your recent emails in a beautifully formatted table.
+- **👀 Quick Preview**: Select an email to instantly view its details and snippet.
+- **🔐 Secure Authentication**: OAuth2 integration with Google for secure login.
+- **⚡ Fast**: Built for speed and efficiency in the terminal.
 
-For full documentation, visit [laravel-zero.com](https://laravel-zero.com/).
+## 🚀 Installation
 
-## Support the development
-**Do you like this project? Support it by donating**
+1. **Clone the repository**
 
-- PayPal: [Donate](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=66BYDWAT92N6L)
-- Patreon: [Donate](https://www.patreon.com/nunomaduro)
+    ```bash
+    git clone https://github.com/devMuhammad05/gog-cli.git
+    cd gog-cli
+    ```
 
-## License
+2. **Install dependencies**
 
-Laravel Zero is an open-source software licensed under the MIT license.
+    ```bash
+    composer install
+    ```
+
+3. **Setup Credentials**
+    - Place your Google OAuth `credentials.json` file in the project's storage path (or configured path).
+    - Ensure the `google.php` config points to the correct credentials location.
+
+## 🎮 Usage
+
+### Authentication
+
+First, you need to authenticate with your Google account. Run:
+
+```bash
+php gog-cli auth:login
+```
+
+Follow the interactive prompts to authorize the application in your browser.
+
+### List Emails
+
+To view your emails, run:
+
+```bash
+php gog-cli gmail:list
+```
+
+This will:
+
+1. Fetch your latest emails (with a cool spinner!).
+2. Display them in a table (#, From, Subject, Date).
+3. Prompt you to enter the `#` of the email you want to read.
+
+### List Options
+
+You can specify the number of emails to retrieve:
+
+```bash
+php gog-cli gmail:list --limit=20
+```
+
+## 🛠 Tech Stack
+
+- **[Laravel Zero](https://laravel-zero.com/)** - The framework for console artisans.
+- **[Laravel Prompts](https://laravel.com/docs/prompts)** - For beautiful and user-friendly forms.
+- **[Google API Client](https://github.com/googleapis/google-api-php-client)** - Interaction with Gmail API.
+
+## 📄 License
+
+Gog CLI is open-sourced software licensed under the [MIT license](LICENSE).
