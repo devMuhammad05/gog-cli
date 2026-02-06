@@ -12,6 +12,8 @@
 ## ✨ Features
 
 - **📨 Interactive Email List**: View your recent emails in a beautifully formatted table.
+- **🔍 Advanced Search**: Search emails using Gmail search operators (from:, subject:, is:unread, etc.).
+- **⚡ Quick Filters**: Instant access to unread, starred, attachments, today's, and this week's emails.
 - **👀 Quick Preview**: Select an email to instantly view its details and snippet.
 - **🔐 Secure Authentication**: OAuth2 integration with Google for secure login.
 - **⚡ Fast**: Built for speed and efficiency in the terminal.
@@ -95,6 +97,29 @@ This will:
 - `has:attachment` - Emails with attachments
 - `after:YYYY/MM/DD` - Emails after a specific date
 - `before:YYYY/MM/DD` - Emails before a specific date
+
+### Quick Filter Commands
+
+For common searches, use these convenient shortcuts:
+
+```bash
+# View unread emails
+php gog-cli gmail:unread
+
+# View starred emails
+php gog-cli gmail:starred
+
+# View emails with attachments
+php gog-cli gmail:attachments
+
+# View today's emails
+php gog-cli gmail:today
+
+# View this week's emails
+php gog-cli gmail:week
+```
+
+These commands provide quick access to frequently needed email filters without having to remember search operators.
 
 ## 🛠 Tech Stack
 
