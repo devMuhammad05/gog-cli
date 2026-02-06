@@ -19,14 +19,19 @@ class GmailService
      * List recent messages from the user's inbox.
      *
      * @param int $limit
+     * @param string|null $query
      * @return array
      */
-    public function listMessages(int $limit = 10): array
+    public function listMessages(int $limit = 10, ?string $query = null): array
     {
         $params = [
             'maxResults' => $limit,
             'labelIds' => ['INBOX'],
         ];
+
+        if ($query) {
+            $params['q'] = $query;
+        }
 
         $messages = $this->service->users_messages->listUsersMessages('me', $params);
 

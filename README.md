@@ -69,6 +69,33 @@ You can specify the number of emails to retrieve:
 php gog-cli gmail:list --limit=20
 ```
 
+### Search Emails
+
+Search your Gmail messages using standard Gmail search operators:
+
+```bash
+php gog-cli gmail:search "from:boss"
+php gog-cli gmail:search "is:unread"
+php gog-cli gmail:search "subject:meeting"
+php gog-cli gmail:search "has:attachment after:2024/01/01"
+```
+
+This will:
+
+1. Search your emails using the provided query.
+2. Display matching results in a table.
+3. Allow you to select an email to view its details.
+
+**Common search operators:**
+- `from:sender@example.com` - Emails from a specific sender
+- `to:recipient@example.com` - Emails to a specific recipient
+- `subject:keyword` - Emails with keyword in subject
+- `is:unread` - Unread emails
+- `is:starred` - Starred emails
+- `has:attachment` - Emails with attachments
+- `after:YYYY/MM/DD` - Emails after a specific date
+- `before:YYYY/MM/DD` - Emails before a specific date
+
 ## 🛠 Tech Stack
 
 - **[Laravel Zero](https://laravel-zero.com/)** - The framework for console artisans.
